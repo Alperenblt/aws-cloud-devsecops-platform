@@ -51,3 +51,80 @@ Nginx Web Server
 - **Web Server:** Nginx
 - **Provisioning:** Terraform user_data script
 - **Deployment:** Controlled by the create_ec2 variable
+
+## Getting Started
+
+### Prerequisites
+
+Before using this project, make sure you have:
+
+- An AWS account
+- Terraform installed
+- AWS CLI installed and configured
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Alperenblt/aws-cloud-devsecops-platform.git
+```
+
+Navigate to the Terraform directory:
+
+```bash
+cd aws-cloud-devsecops-platform/terraform
+```
+
+Initialize Terraform:
+
+```bash
+terraform init
+```
+
+Preview infrastructure changes:
+
+```bash
+terraform plan
+```
+
+Deploy the infrastructure:
+
+```bash
+terraform apply
+```
+
+### EC2 Deployment
+
+By default, EC2 creation is disabled to reduce AWS costs.
+
+To enable EC2 deployment, create a `terraform.tfvars` file containing:
+
+```hcl
+create_ec2 = true
+```
+
+Then run:
+
+```bash
+terraform apply
+```
+
+To remove the EC2 instance, change the variable to:
+
+```hcl
+create_ec2 = false
+```
+
+Run `terraform apply` again.
+
+### Cleanup
+
+To remove all Terraform-managed infrastructure:
+
+```bash
+terraform destroy
+```
+
+**Warning:** Terraform may create billable AWS resources. Always review the execution plan before applying changes.
+
