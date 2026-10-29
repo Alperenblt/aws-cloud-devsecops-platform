@@ -128,3 +128,6 @@ terraform destroy
 
 **Warning:** Terraform may create billable AWS resources. Always review the execution plan before applying changes.
 
+## CI/CD Pipeline
+
+Terraform infrastructure is validated automatically using GitHub Actions.
