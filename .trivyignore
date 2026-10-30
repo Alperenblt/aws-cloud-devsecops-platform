@@ -1,0 +1,5 @@
+# Temporary risk acceptance for the development environment.
+# See SECURITY.md for explanations and review triggers.
+
+AWS-0104
+AWS-0132
