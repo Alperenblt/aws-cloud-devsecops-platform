@@ -69,3 +69,23 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -input=false -var='create_ec2=false'
         working-directory: terraform/environments/dev
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest        
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Run Trivy security scan
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          scan-type: config
+          scan-ref: terraform
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+                    
